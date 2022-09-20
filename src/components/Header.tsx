@@ -8,22 +8,21 @@ export const Header = () => {
 	const { colorMode } = useContext(AppContext);
 
 	return (
-			<header>
-				<Flex 
-          justifyContent="between" 
-        	alignItems="center"
-					position="sticky"
-					zIndex="1"
-					bg="navigation"
-        >
-					<Flex w={"100%"} h={"80px"} alignItems={"center"} px={4}>
+		<Flex 
+			justifyContent="between" 
+			alignItems="center"
+			position="sticky"
+			zIndex="1"
+			px='10px'
+			bg={colorMode === "dark" ? "navigation" : "white"}  
+	 	>
+			<Flex w={"100%"} h={"80px"} alignItems={"center"} px={4}>
 						<HypeLogo
 							fillColor={colorMode === "dark" ? "white" : "black"}
 							height={30}
 						/>
-      		</Flex>
-					<DarkModeSwitch />
-        </Flex>
-      </header>
-    )
+      </Flex>
+			<DarkModeSwitch />
+    </Flex>
+		);
 }

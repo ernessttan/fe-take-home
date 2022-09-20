@@ -8,6 +8,7 @@ const theme = extendTheme({
     md: "52em",
     lg: "64em",
     xl: "80em",
+    '2xl': "96em"
   },
   semanticTokens: {
     colors: {
@@ -22,6 +23,8 @@ const theme = extendTheme({
     },
   },
   colors: {
+    primary: '#4980F8',
+    primary75: '#5b8cf8',
     black: "#16161D",
     navigation: "#10121F"
   },
