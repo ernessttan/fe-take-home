@@ -23,6 +23,7 @@ const theme = extendTheme({
   },
   colors: {
     black: "#16161D",
+    navigation: "#10121F"
   },
   fonts,
   styles: {
