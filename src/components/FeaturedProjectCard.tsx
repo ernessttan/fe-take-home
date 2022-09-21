@@ -8,7 +8,7 @@ export function FeaturedProjectCard(props: any) {
     <Link
       href={`/project/${data.project_id}`}
       w={{ base: '100%', md: '50%', lg: '20%' }}
-      h="420px"
+      h="400px"
       flexShrink="0"
       borderRadius="lg"
       overflow="hidden"

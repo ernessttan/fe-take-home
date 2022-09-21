@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
-import Link from 'next/link';
 import {
   Box,
 } from '@chakra-ui/react';
@@ -36,7 +35,7 @@ export default function Project() {
     <>
       <Header />
       <Box height="100vh" p="10">
-        <Information project={project} colorMode={colorMode} />
+        <Information project={project} colorMode={colorMode} setWatchList={setWatchList} />
       </Box>
     </>
   );

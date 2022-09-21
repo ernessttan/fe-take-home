@@ -1,5 +1,6 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Link } from '@chakra-ui/react';
 import { useContext } from 'react';
+import NextLink from 'next/link';
 import HypeLogo from './HypeLogo';
 import { AppContext } from '../context/AppContext';
 import { DarkModeSwitch } from './DarkModeSwitch';
@@ -19,10 +20,14 @@ export function Header() {
       bg={colorMode === 'dark' ? 'navigation' : 'white'}
     >
       <Flex w="100%" h="80px" alignItems="center">
-        <HypeLogo
-          fillColor={colorMode === 'dark' ? 'white' : 'black'}
-          height={30}
-        />
+        <NextLink href="/">
+          <Link>
+            <HypeLogo
+              fillColor={colorMode === 'dark' ? 'white' : 'black'}
+              height={30}
+            />
+          </Link>
+        </NextLink>
       </Flex>
       <Flex gap="2">
         <NotificatiomsButton />

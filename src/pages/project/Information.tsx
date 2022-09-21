@@ -5,7 +5,11 @@ import { ViewIcon } from '@chakra-ui/icons';
 import { FaTwitter, FaGlobe, FaDiscord } from 'react-icons/fa';
 
 export function Information(props: any) {
-  const { project, colorMode } = props;
+  const { project, colorMode, setWatchList } = props;
+
+  const addToWatchList = (e) => {
+    setWatchList((prev: any) => [...prev, project.project_id]);
+  };
 
   return (
     <Flex flexDirection={{ base: 'column', md: 'row' }} gap={{ base: '5', md: '10' }} alignItems="center">
@@ -42,7 +46,16 @@ export function Information(props: any) {
               icon={<FaDiscord />}
             />
           </Link>
-          <Button aria-label="Watch Project" _hover={{ bg: 'primary75', color: 'white' }} color="white" colorScheme={colorMode === 'dark' ? 'whiteAlpha' : 'blackAlpha'} display="flex" alignItems="center" gap="2">
+          <Button
+            aria-label="Watch Project"
+            _hover={{ bg: 'primary75', color: 'white' }}
+            color="white"
+            colorScheme={colorMode === 'dark' ? 'whiteAlpha' : 'blackAlpha'}
+            display="flex"
+            alignItems="center"
+            gap="2"
+            onClick={addToWatchList}
+          >
             <ViewIcon />
             Watch
           </Button>
