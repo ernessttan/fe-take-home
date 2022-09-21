@@ -10,8 +10,11 @@ import { Information } from './Information';
 export default function Project() {
   const router = useRouter();
   const { pid } = router.query;
-  const { colorMode, hyperClient, setWatchList } = useContext(AppContext);
+  const {
+    colorMode, hyperClient, setWatchList, watchList,
+  } = useContext(AppContext);
   const [project, setProject] = useState();
+  const [isWatched, setIsWatched] = useState(false);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -29,13 +32,24 @@ export default function Project() {
     }
   }, [pid]);
 
-  console.log(project);
+  useEffect(() => {
+    if (watchList.includes(pid)) {
+      setIsWatched(true);
+    } else {
+      setIsWatched(false);
+    }
+  }, [watchList]);
 
   return project && (
     <>
       <Header />
       <Box height="100vh" p="10">
-        <Information project={project} colorMode={colorMode} setWatchList={setWatchList} />
+        <Information
+          project={project}
+          colorMode={colorMode}
+          setWatchList={setWatchList}
+          isWatched={isWatched}
+        />
       </Box>
     </>
   );

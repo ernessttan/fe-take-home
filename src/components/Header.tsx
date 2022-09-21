@@ -1,4 +1,5 @@
-import { Flex, Link } from '@chakra-ui/react';
+import { Flex, Link, Button } from '@chakra-ui/react';
+import { ViewIcon } from '@chakra-ui/icons';
 import { useContext } from 'react';
 import NextLink from 'next/link';
 import HypeLogo from './HypeLogo';
@@ -16,7 +17,7 @@ export function Header() {
       position="sticky"
       top="0"
       zIndex="1"
-      px="3"
+      px="5"
       bg={colorMode === 'dark' ? 'navigation' : 'white'}
     >
       <Flex w="100%" h="80px" alignItems="center">
@@ -30,6 +31,17 @@ export function Header() {
         </NextLink>
       </Flex>
       <Flex gap="2">
+        <NextLink href="/watchlist">
+          <Link>
+            <Button
+              aria-label="Open Watchlist"
+              _hover={{ bg: 'primary75', color: 'white' }}
+              variant="ghost"
+            >
+              <ViewIcon />
+            </Button>
+          </Link>
+        </NextLink>
         <NotificatiomsButton />
         <DarkModeSwitch />
       </Flex>

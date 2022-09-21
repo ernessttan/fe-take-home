@@ -11,7 +11,7 @@ import { FeaturedProjectCard } from '../components/FeaturedProjectCard';
 import { AppContext } from '../context/AppContext';
 
 function Index() {
-  const { hyperClient } = useContext(AppContext);
+  const { hyperClient, colorMode } = useContext(AppContext);
   const [projects, setProjects] = useState([]);
 
   const enum SortOrderEnum {
@@ -51,8 +51,8 @@ function Index() {
         <Box position="relative" w="100%">
           <IconButton
             display={{ base: 'none', md: 'block' }}
-            bg="blackAlpha.700"
-            _hover={{ bg: 'black' }}
+            bg={colorMode === 'dark' ? 'blackAlpha.700' : 'whiteAlpha.700'}
+            _hover={colorMode === 'dark' ? { bg: 'black' } : { bg: 'white' }}
             aria-label="Scroll Left"
             position="absolute"
             left="0"
@@ -66,8 +66,8 @@ function Index() {
           />
           <IconButton
             display={{ base: 'none', md: 'block' }}
-            bg="blackAlpha.700"
-            _hover={{ bg: 'black' }}
+            bg={colorMode === 'dark' ? 'blackAlpha.700' : 'whiteAlpha.700'}
+            _hover={colorMode === 'dark' ? { bg: 'black' } : { bg: 'white' }}
             aria-label="Scroll Right"
             position="absolute"
             right="0"

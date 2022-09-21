@@ -34,7 +34,7 @@ const theme = extendTheme({
   styles: {
     global: {
       html: {
-        height: '100%',
+        height: '100vh',
         background: 'siteBackground',
       },
       '#__next': {
@@ -43,7 +43,7 @@ const theme = extendTheme({
       body: {
         padding: 0,
         margin: 0,
-        height: '100%',
+        'min-height': '100%',
         width: '100%',
         background: 'siteBackground !important',
       },
