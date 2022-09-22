@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import {
-  Grid, Image, Box, Text, useBoolean,
+  Grid, Box,
 } from '@chakra-ui/react';
 import { AppContext } from '../../context/AppContext';
 import { Header } from '../../components/Header';
 import Information from './Information';
+import { TokenCard } from '../../components/TokenCard';
 
 export default function Project() {
   const router = useRouter();
@@ -60,13 +61,6 @@ export default function Project() {
     }
   }, [project, watchList]);
 
-  const cleanName = (name: string) => {
-    console.log(name);
-    const poundIndex = name.indexOf('#');
-    const cleaned = name.slice(poundIndex, name.length - 1 + 1);
-    return cleaned;
-  };
-
   return project && (
     <>
       <Header />
@@ -88,31 +82,13 @@ export default function Project() {
         />
         <Grid py="10" gap="5" templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(5, 1fr)' }}>
           {tokens?.map((token: any) => (
-            <Box
+            <TokenCard
               key={token.token_address}
-              boxShadow="md"
-              border="1px"
-              borderColor="whiteAlpha.200"
-              borderRadius="lg"
-              overflow="hidden"
-              cursor="pointer"
-              _hover={colorMode === 'dark' ? { bg: 'whiteAlpha.200' } : { bg: 'blackAlpha.200' }}
-            >
-              <Box overflow="hidden">
-                <Image
-                  src={token.meta_data_img}
-                  _hover={{ transform: 'scale(1.1)', transition: 'all 0.5s ease' }}
-                />
-              </Box>
-              <Box p="5">
-                <Text fontWeight="semibold" fontSize="md">{cleanName(token.name)}</Text>
-                <Text fontWeight="semibold" fontSize="md">
-                  {token.lowest_listing_mpa.price}
-                  {' '}
-                  SOL
-                </Text>
-              </Box>
-            </Box>
+              colorMode={colorMode}
+              imgSrc={token.meta_data_img}
+              name={token.name}
+              price={token.lowest_listing_mpa.price}
+            />
           ))}
         </Grid>
       </Box>

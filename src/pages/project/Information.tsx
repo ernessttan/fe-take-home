@@ -17,7 +17,7 @@ type InformationProps = {
   website: string,
   discord: string,
   isWatched: boolean,
-  setWatchList: (prev: any) => void,
+  setWatchList: (arg0: any) => void,
   colorMode: string,
 }
 

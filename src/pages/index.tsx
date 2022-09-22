@@ -12,13 +12,13 @@ import { AppContext } from '../context/AppContext';
 
 const Index = () => {
   const { hyperClient, colorMode } = useContext(AppContext);
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<any[]>();
 
   useEffect(() => {
     const fetchProjects = async () => {
       await hyperClient.getProjects({
         orderBy: {
-          field_name: 'volume_1day',
+          field_name: 'volume_7day',
           sort_order: 'DESC',
         },
         paginationInfo: {

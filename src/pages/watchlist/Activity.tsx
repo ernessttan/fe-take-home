@@ -4,11 +4,11 @@ import {
 } from '@chakra-ui/react';
 import { useContext, useState, useEffect } from 'react';
 import { FaTag, FaDollarSign } from 'react-icons/fa';
-import { ActivityGrid } from '../../components/ActivityGrid';
+import { ActivityGrid } from '../../components/ActivityTable';
 import { AppContext } from '../../context/AppContext';
 
 export default function Activity() {
-  const { watchList, hyperClient, colorMode } = useContext(AppContext);
+  const { watchList, hyperClient } = useContext(AppContext);
   const [activityData, setActivityData] = useState<any>();
 
   useEffect(() => {
