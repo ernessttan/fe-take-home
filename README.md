@@ -3,7 +3,9 @@
 ## Description
 I decided to create a watchlist feature that allows users to add their favorite projects/collections to a watchlist where they can keep track of overall statistics, bids and listings.
 
-## Demo
+## Demo Videos
+### Dark Mode
+![Dark Mode](https://github.com/ernessttan/fe-take-home/blob/main/demogifs/darkmode.gif)
 
 
 ## Features Implemented
