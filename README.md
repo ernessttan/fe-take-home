@@ -6,6 +6,8 @@ I decided to create a watchlist feature that allows users to add their favorite 
 ## Demo Videos
 ### Dark Mode
 ![Dark Mode](https://github.com/ernessttan/fe-take-home/blob/main/demogifs/darkmode.gif)
+
+### Light Mode
 ![Light Mode](https://github.com/ernessttan/fe-take-home/blob/main/demogifs/lightmode.gif)
 
 
