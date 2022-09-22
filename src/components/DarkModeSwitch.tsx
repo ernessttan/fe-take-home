@@ -1,4 +1,4 @@
-import { useColorMode, IconButton, Button } from '@chakra-ui/react';
+import { useColorMode, Button } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 
 export function DarkModeSwitch() {

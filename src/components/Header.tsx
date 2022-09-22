@@ -1,30 +1,13 @@
 import { Flex, Link, Button } from '@chakra-ui/react';
 import { ViewIcon } from '@chakra-ui/icons';
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import NextLink from 'next/link';
 import HypeLogo from './HypeLogo';
 import { AppContext } from '../context/AppContext';
 import { DarkModeSwitch } from './DarkModeSwitch';
 
 export function Header() {
-  const { watchList, colorMode, hyperClient } = useContext(AppContext);
-  const [newListings, setNewListings] = useState<any>();
-
-  const fetchListingNotifications = async () => {
-    await hyperClient.getProjectHistory({
-      condition: {
-        projects: [{ project_id: 'okaybears' }],
-        actionTypes: ['LISTING'],
-      },
-      paginationInfo: {
-        page_size: 5,
-      },
-    }).then((res: any) => setNewListings(res.getProjectHistory.market_place_snapshots));
-  };
-
-  useEffect(() => {
-    fetchListingNotifications();
-  }, [watchList]);
+  const { colorMode } = useContext(AppContext);
 
   return (
     <Flex

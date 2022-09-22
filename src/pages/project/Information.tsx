@@ -29,7 +29,7 @@ const Information: FC<InformationProps> = ({
 
   const addToWatchList = () => {
     if (!isWatched) {
-      setWatchList((prev: any) => [...prev, projectId]);
+      setWatchList((prev: any) => [...prev, { project_id: projectId }]);
       toast({
         title: 'Added to Watchlist',
         description: 'You can now view this project in your watchlist',
@@ -39,7 +39,7 @@ const Information: FC<InformationProps> = ({
         position: 'top',
       });
     } else {
-      setWatchList((prev: any) => prev.filter((id: string) => id !== projectId));
+      setWatchList((prev: any) => prev.filter((item: any) => item.project_id !== projectId));
       toast({
         title: 'Removed from Watchlist',
         description: 'You can no longer view this project in your watchlist',

@@ -24,6 +24,8 @@ const theme = extendTheme({
       button: '12px',
     },
   },
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
   colors: {
     primary: '#4980F8',
     primary75: '#5b8cf8',
@@ -34,11 +36,11 @@ const theme = extendTheme({
   styles: {
     global: {
       html: {
-        height: '100vh',
+        minHeight: '100vh',
         background: 'siteBackground',
       },
       '#__next': {
-        height: '100%',
+        minHeight: '100%',
       },
       body: {
         padding: 0,

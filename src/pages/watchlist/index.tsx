@@ -9,7 +9,7 @@ export default function WatchList() {
   return (
     <>
       <Header />
-      <Flex flexDirection="column" p="10" h="100%">
+      <Flex flexDirection="column" p="5" h="100%">
         <Heading as="h1">My Watchlist</Heading>
         <Tabs my="5">
           <TabList>
@@ -17,10 +17,10 @@ export default function WatchList() {
             <Tab>Activity</Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
+            <TabPanel px="2" p="5">
               <Overview />
             </TabPanel>
-            <TabPanel>
+            <TabPanel px="2" py="5">
               <Activity />
             </TabPanel>
           </TabPanels>

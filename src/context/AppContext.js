@@ -9,7 +9,7 @@ export function AppContextProvider({ children }) {
   const hyperClient = new HyperspaceClient(
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJGRSBJbnRlcnZpZXciLCJuYW1lIjoiSHlwZXJzcGFjZSIsImlhdCI6MTUxNjIzOTAyMn0.HDfB97Y1pgQqQ6GshXsh5nz7fA1_ban9MTZDAbgobJk',
   );
-  const [watchList, setWatchList] = useState(['okaybears']);
+  const [watchList, setWatchList] = useState([]);
 
   return (
     <AppContext.Provider value={{

@@ -1,6 +1,7 @@
 import { FC, useContext } from 'react';
 import {
-  TableContainer, Thead, Tr, Th, Td, Tbody, Tfoot, Table, Flex, Text, Image, Link, Box,
+  TableContainer, Thead, Tr, Th, Td, Tbody, Tfoot,
+  Table, Flex, Text, Image, Link,
 } from '@chakra-ui/react';
 import { FaTag, FaDollarSign } from 'react-icons/fa';
 import fromUnixTime from 'date-fns/fromUnixTime';
@@ -16,7 +17,7 @@ export const ActivityGrid: FC<ActivityGridProps> = ({ activityData }) => {
 
   return (
     <TableContainer border="1px" borderRadius="lg" my="10" flexGrow="1">
-      <Table variant="simple">
+      <Table variant="simple" size="lg">
         <Thead>
           <Tr>
             <Th>Item</Th>
@@ -32,7 +33,9 @@ export const ActivityGrid: FC<ActivityGridProps> = ({ activityData }) => {
               <Td>
                 <Flex alignItems="center" justifyContent="flex-start" gap="3">
                   <Image src={activity.meta_data_img} h="16" w="16" borderRadius="md" />
-                  <Text>{activity.name}</Text>
+                  <Text>
+                    {activity.name}
+                  </Text>
                 </Flex>
               </Td>
               <Td>
