@@ -11,8 +11,6 @@ export function AppContextProvider({ children }) {
   );
   const [watchList, setWatchList] = useState(['okaybears']);
 
-  console.log(watchList);
-
   return (
     <AppContext.Provider value={{
       colorMode, hyperClient, watchList, setWatchList,

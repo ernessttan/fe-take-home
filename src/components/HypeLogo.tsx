@@ -7,7 +7,7 @@ type SvgProps = {
 };
 
 const HypeLogo: FC<SvgProps> = ({
-  fillColor, width, height, onClick,
+  fillColor, width, height,
 }) => (
   <svg
     width={width}

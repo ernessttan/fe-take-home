@@ -1,14 +1,30 @@
 import { Flex, Link, Button } from '@chakra-ui/react';
 import { ViewIcon } from '@chakra-ui/icons';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import NextLink from 'next/link';
 import HypeLogo from './HypeLogo';
 import { AppContext } from '../context/AppContext';
 import { DarkModeSwitch } from './DarkModeSwitch';
-import { NotificatiomsButton } from './NotificationsButton';
 
 export function Header() {
-  const { colorMode } = useContext(AppContext);
+  const { watchList, colorMode, hyperClient } = useContext(AppContext);
+  const [newListings, setNewListings] = useState<any>();
+
+  const fetchListingNotifications = async () => {
+    await hyperClient.getProjectHistory({
+      condition: {
+        projects: [{ project_id: 'okaybears' }],
+        actionTypes: ['LISTING'],
+      },
+      paginationInfo: {
+        page_size: 5,
+      },
+    }).then((res: any) => setNewListings(res.getProjectHistory.market_place_snapshots));
+  };
+
+  useEffect(() => {
+    fetchListingNotifications();
+  }, [watchList]);
 
   return (
     <Flex
@@ -42,7 +58,6 @@ export function Header() {
             </Button>
           </Link>
         </NextLink>
-        <NotificatiomsButton />
         <DarkModeSwitch />
       </Flex>
     </Flex>

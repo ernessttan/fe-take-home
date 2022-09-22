@@ -43,7 +43,7 @@ const theme = extendTheme({
       body: {
         padding: 0,
         margin: 0,
-        'min-height': '100%',
+        minHeight: '100%',
         width: '100%',
         background: 'siteBackground !important',
       },

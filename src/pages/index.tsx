@@ -1,5 +1,5 @@
 import {
-  Flex, Box, Text, IconButton, Heading,
+  Flex, Box, IconButton, Heading,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import {
@@ -10,21 +10,20 @@ import { Header } from '../components/Header';
 import { FeaturedProjectCard } from '../components/FeaturedProjectCard';
 import { AppContext } from '../context/AppContext';
 
-function Index() {
+const Index = () => {
   const { hyperClient, colorMode } = useContext(AppContext);
-  const [projects, setProjects] = useState([]);
-
-  const enum SortOrderEnum {
-    Asc = 'ASC',
-    Desc = 'DESC'
-  }
+  const [projects, setProjects] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
       await hyperClient.getProjects({
         orderBy: {
           field_name: 'volume_1day',
-          sort_order: SortOrderEnum.Desc,
+          sort_order: 'DESC',
+        },
+        paginationInfo: {
+          page_number: 1,
+          page_size: 10,
         },
       }).then((res: any) => setProjects(res.getProjectStats.project_stats));
     };
@@ -33,7 +32,7 @@ function Index() {
 
   const handleScroll = (e: any) => {
     const { value } = e.currentTarget;
-    const featuredCarousel = document.getElementById('featuredCarousel');
+    const featuredCarousel = document.getElementById('featuredCarousel')!;
     if (value === 'left') {
       featuredCarousel.scrollLeft -= 500;
     } else {
@@ -98,7 +97,13 @@ function Index() {
             }}
           >
             { projects.map((project: any) => (
-              <FeaturedProjectCard data={project} type="project" key={project.project_id} />
+              <FeaturedProjectCard
+                key={project.project_id}
+                projectId={project.project_id}
+                imgSrc={project.project.img_url}
+                displayName={project.project.display_name}
+                floorPrice={project.floor_price}
+              />
             ))}
           </Flex>
         </Box>
@@ -106,6 +111,6 @@ function Index() {
     </>
 
   );
-}
+};
 
 export default Index;
